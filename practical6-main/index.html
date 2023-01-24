@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson 25</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <h1>Задание 1</h1>
+    <img src="img/1.jpg">
+    <img src="img/2.jpg">
+    <img src="img/3.jpg"> -->
+
+    <!-- <h1>Задание 2</h1>
+    <a href="#" title="">Текст первой ссылки</a>
+    <a href="#" title="">Текст второй ссылки</a>
+    <a href="#" title="">Текст третьей ссылки</a> -->
+
+    <!-- <h1>Задание 3</h1>
+    <a href="https://yandex.by/" title="">Текст первой ссылки</a>
+    <a href="https://vk.com/" title="">Текст второй ссылки</a>
+    <a href="http://google.com/" title="">Текст третьей ссылки</a> -->
+    
+    <!-- Домашнее задание -->
+
+    <!--№1 
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <input type="text" value="3">
+    <p id="test"></p> -->
+
+    <!-- №2
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <input type="text" value="3"> -->
+
+    <!-- №3
+    <p>2</p>
+    <p>4</p>
+    <p>6</p> -->
+
+    <!-- №4
+    <input type="text" data-length="4">
+    <input type="text" data-length="7">
+    <input type="text" data-length="9"> -->
+
+
+
+    <h3>Задача 1. Привяжите всем инпутам следующее событие - по потери
+        фокуса каждый инпут выводит свое value в абзац с id="test".</h3>
+
+    <input type="text" class="task5"> <br>
+    <input type="text" class="task5"> <br>
+    <input type="text" class="task5">
+    <p id="test5"></p>
+    <script>
+        const getInput5 = document.querySelectorAll('.task5');
+        const getP5 = document.querySelector('#test5');
+
+        for (let i = 0; i < getInput5.length; i += 1) {
+            getInput5[i].addEventListener('blur', func5);
+        }
+
+        function func5() {
+            getP5.innerHTML = getP5.innerHTML + this.value;
+        }
+    </script>
+    <hr>
+
+    <h3>Задача 2. Для всех инпутов сделайте так, чтобы они выводили свой
+        value алертом при нажатии на любой из них, но только по первому
+        нажатию. Повторное нажатие на инпут не должно вызывать реакции.</h3>
+    <input type="submit" value="1111111" class="task6">
+    <input type="submit" value="2222222" class="task6">
+    <input type="submit" value="3333333" class="task6">
+    <script>
+        const getInput6 = document.querySelectorAll('.task6');
+
+        for (let i = 0; i < getInput6.length; i += 1) {
+            getInput6[i].addEventListener('click', func6);
+        }
+
+        function func6() {
+            alert(this.value);
+            this.removeEventListener('click', func6);
+        }
+    </script>
+
+    <h3>Задача 3. Даны абзацы с числами. По нажатию на абзац в нем должен
+        появится квадрат числа, которое он содержит</h3>
+    <p class="task7">2</p>
+    <p class="task7">3</p>
+    <p class="task7">4</p>
+    <p class="task7">5</p>
+    <script>
+        const getP7 = document.querySelectorAll('.task7');
+
+        for (let i = 0; i < getP7.length; i += 1) {
+            getP7[i].addEventListener('click', func7);
+        }
+
+        function func7() {
+            this.innerHTML = Number(this.innerHTML) * Number(this.innerHTML);
+        }
+    </script>
+    <hr>
+
+    <h3>Задача 4. Даны инпуты. Сделайте так, чтобы все инпуты по потери
+        фокуса проверяли свое содержимое на правильное количество символов.
+        Сколько символов должно быть в инпуте, указывается в атрибуте data-length.
+        Если вбито правильное количество, то граница инпута становится
+        зеленой, если неправильное - красной</h3>
+
+    <input type="text" class="task8" value="" data-length="1"> <br>
+    <input type="text" class="task8" value="" data-length="2"> <br>
+    <input type="text" class="task8" value="" data-length="3">
+    <script>
+        const getInput8 = document.querySelectorAll('.task8');
+
+        for (let i = 0; i < getInput8.length; i += 1) {
+            getInput8[i].addEventListener('blur', func8);
+        }
+
+        function func8() {
+            if (Number(this.dataset.length) === Number(this.value.length)) {
+                this.style.border = '3px solid green';
+            } else {
+                this.style.border = '3px solid red';
+            }
+        }
+    </script>
+    <hr>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
